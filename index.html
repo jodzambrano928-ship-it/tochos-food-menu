@@ -9,22 +9,18 @@
   <style>
     /* ==========================================================================
        1. AQUÍ SE CAMBIAN LOS COLORES Y TIPOGRAFÍA DE LA MARCA
-       Modifica los códigos hexadecimales si deseas ajustar el tono de blanco/negro
        ========================================================================== */
     :root {
-      --color-primario: #111111;       /* Negro profundo para textos principales y botones */
-      --color-secundario: #2b2b2b;     /* Gris muy oscuro para contrastes */
-      --color-fondo: #ffffff;          /* Blanco puro de fondo */
-      --color-fondo-suave: #f6f6f6;    /* Gris muy claro para secciones alternas */
-      --color-texto: #1a1a1a;          /* Color de lectura principal */
-      --color-texto-suave: #595959;    /* Gris medio para descripciones e ingredientes */
-      --color-borde: #e2e2e2;          /* Líneas divisorias sutiles */
+      --color-primario: #111111;
+      --color-secundario: #2b2b2b;
+      --color-fondo: #ffffff;
+      --color-fondo-suave: #f6f6f6;
+      --color-texto: #1a1a1a;
+      --color-texto-suave: #595959;
+      --color-borde: #e2e2e2;
       --fuente-principal: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* ==========================================================================
-       2. ESTILOS GENERALES Y DESPLAZAMIENTO SUAVE
-       ========================================================================== */
     * {
       margin: 0;
       padding: 0;
@@ -32,7 +28,7 @@
     }
 
     html {
-      scroll-behavior: smooth; /* Hace que el botón "Ver menú" y los enlaces bajen suavemente */
+      scroll-behavior: smooth;
     }
 
     body {
@@ -50,7 +46,7 @@
     }
 
     /* ==========================================================================
-       3. ENCABEZADO Y NAVEGACIÓN
+       ENCABEZADO Y NAVEGACIÓN
        ========================================================================== */
     header {
       background-color: var(--color-fondo);
@@ -83,7 +79,6 @@
       object-fit: contain;
     }
 
-    /* Emblema de respaldo por si aún no subes logo.png */
     .logo-respaldo {
       display: none;
       width: 46px;
@@ -109,6 +104,7 @@
       list-style: none;
       display: flex;
       gap: 1.75rem;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -124,7 +120,7 @@
     }
 
     /* ==========================================================================
-       4. SECCIÓN DE BIENVENIDA (HERO)
+       SECCIÓN DE BIENVENIDA (HERO)
        ========================================================================== */
     .hero {
       padding: 5.5rem 0 4.5rem;
@@ -182,7 +178,7 @@
     }
 
     /* ==========================================================================
-       5. SECCIÓN ESPECIALIDADES DE LA CASA
+       ESPECIALIDADES DE LA CASA
        ========================================================================== */
     .especialidades {
       padding: 4.5rem 0;
@@ -204,7 +200,7 @@
 
     .encabezado-seccion p {
       color: #b8b8b8;
-      max-width: 600px;
+      max-width: 620px;
       margin: 0 auto;
     }
 
@@ -266,10 +262,10 @@
     }
 
     /* ==========================================================================
-       6. SECCIÓN DEL MENÚ DIGITAL POR CATEGORÍAS
+       MENÚ DIGITAL POR CATEGORÍAS
        ========================================================================== */
     .seccion-menu {
-      padding: 5rem 0;
+      padding: 5rem 0 3.5rem;
       background-color: var(--color-fondo);
     }
 
@@ -277,7 +273,6 @@
       color: var(--color-texto-suave);
     }
 
-    /* Botones de filtro rápido */
     .filtros-menu {
       display: flex;
       justify-content: center;
@@ -306,7 +301,7 @@
     }
 
     .bloque-categoria {
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
     }
 
     .titulo-categoria {
@@ -345,6 +340,22 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
     }
 
+    /* Etiqueta comparativa dentro de cada producto */
+    .etiqueta-comparacion {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--color-primario);
+      background-color: var(--color-fondo-suave);
+      border: 1px solid var(--color-borde);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.65rem;
+      align-self: flex-start;
+    }
+
     .producto-cabecera {
       display: flex;
       justify-content: space-between;
@@ -360,14 +371,14 @@
       line-height: 1.3;
     }
 
+    /* AQUÍ SE MODIFICA EL ESTILO DEL PRECIO */
     .producto-precio {
       font-size: 1.15rem;
       font-weight: 800;
-      background-color: var(--color-fondo-suave);
-      color: var(--color-primario);
+      background-color: var(--color-primario);
+      color: var(--color-fondo);
       padding: 0.25rem 0.65rem;
       border-radius: 6px;
-      border: 1px solid var(--color-borde);
       white-space: nowrap;
     }
 
@@ -388,22 +399,80 @@
       color: var(--color-primario);
     }
 
+    /* ==========================================================================
+       TABLA DE COMPARACIÓN DE PRECIOS
+       ========================================================================== */
+    .seccion-comparacion {
+      padding: 4.5rem 0;
+      background-color: var(--color-fondo-suave);
+      border-top: 1px solid var(--color-borde);
+      border-bottom: 1px solid var(--color-borde);
+    }
+
+    .seccion-comparacion .encabezado-seccion p {
+      color: var(--color-texto-suave);
+    }
+
+    .tabla-envoltura {
+      width: 100%;
+      overflow-x: auto;
+      background-color: var(--color-fondo);
+      border: 1px solid var(--color-borde);
+      border-radius: 10px;
+    }
+
+    table.tabla-precios {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 620px;
+    }
+
+    table.tabla-precios th,
+    table.tabla-precios td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--color-borde);
+      font-size: 0.94rem;
+    }
+
+    table.tabla-precios th {
+      background-color: var(--color-primario);
+      color: var(--color-fondo);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.6px;
+    }
+
+    table.tabla-precios tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.tabla-precios tr:hover td {
+      background-color: #fafafa;
+    }
+
+    .precio-destacado-tabla {
+      font-weight: 800;
+      color: var(--color-primario);
+      white-space: nowrap;
+    }
+
     .nota-precios {
       text-align: center;
       font-size: 0.85rem;
       color: var(--color-texto-suave);
-      margin-top: 2rem;
+      margin-top: 1.5rem;
     }
 
     /* ==========================================================================
-       7. LLAMADA A LA ACCIÓN (CTA) E INFORMACIÓN DEL RESTAURANTE
+       CTA E INFORMACIÓN DEL RESTAURANTE
        ========================================================================== */
     .seccion-cta {
-      background-color: var(--color-fondo-suave);
-      border-top: 1px solid var(--color-borde);
-      border-bottom: 1px solid var(--color-borde);
+      background-color: var(--color-fondo);
       padding: 4.5rem 0;
       text-align: center;
+      border-bottom: 1px solid var(--color-borde);
     }
 
     .seccion-cta h2 {
@@ -416,7 +485,7 @@
 
     .info-restaurante {
       padding: 4.5rem 0;
-      background-color: var(--color-fondo);
+      background-color: var(--color-fondo-suave);
     }
 
     .grid-info {
@@ -428,7 +497,7 @@
     .caja-info {
       padding: 1.5rem;
       border-left: 3px solid var(--color-primario);
-      background-color: var(--color-fondo-suave);
+      background-color: var(--color-fondo);
     }
 
     .caja-info h3 {
@@ -445,7 +514,7 @@
     }
 
     /* ==========================================================================
-       8. PIE DE PÁGINA (FOOTER)
+       PIE DE PÁGINA
        ========================================================================== */
     footer {
       background-color: var(--color-primario);
@@ -467,9 +536,6 @@
       color: #a3a3a3;
     }
 
-    /* ==========================================================================
-       9. ADAPTACIÓN A TELÉFONOS CELULARES (RESPONSIVE)
-       ========================================================================== */
     @media (max-width: 680px) {
       .nav-contenido {
         justify-content: center;
@@ -494,15 +560,14 @@
 <body>
 
   <!-- ========================================================================
-       ENCABEZADO: LOGOTIPO, NOMBRE DEL RESTAURANTE Y ENLACES DE NAVEGACIÓN
+       ENCABEZADO: LOGOTIPO, NOMBRE DEL RESTAURANTE Y ENLACES
        ======================================================================== -->
   <header>
     <div class="contenedor nav-contenido">
       <a href="#inicio" class="marca">
-        <!-- AQUÍ SE REEMPLAZA EL LOGOTIPO: Asegúrate de que tu archivo se llame exactamente logo.png -->
+        <!-- AQUÍ SE REEMPLAZA EL LOGOTIPO -->
         <img src="logo.png" alt="Logotipo de Tocho's Food" onerror="this.style.display='none'; document.getElementById('logo-alternativo').style.display='flex';">
         <div id="logo-alternativo" class="logo-respaldo">TF</div>
-        
         <!-- AQUÍ SE MODIFICA EL NOMBRE DEL RESTAURANTE -->
         <span class="marca-texto">Tocho's Food</span>
       </a>
@@ -512,6 +577,7 @@
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#especialidades">Especialidades</a></li>
           <li><a href="#menu">Menú</a></li>
+          <li><a href="#comparacion">Comparar Precios</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
         </ul>
       </nav>
@@ -519,7 +585,7 @@
   </header>
 
   <!-- ========================================================================
-       SECCIÓN DE BIENVENIDA CON FRASE COMERCIAL Y BOTÓN PRINCIPAL
+       SECCIÓN DE BIENVENIDA
        ======================================================================== -->
   <section id="inicio" class="hero">
     <div class="contenedor">
@@ -533,7 +599,7 @@
   </section>
 
   <!-- ========================================================================
-       SECCIÓN DESTACADA: ESPECIALIDADES DE LA CASA
+       ESPECIALIDADES DE LA CASA
        ======================================================================== -->
   <section id="especialidades" class="especialidades">
     <div class="contenedor">
@@ -543,7 +609,6 @@
       </div>
 
       <div class="grid-especialidades">
-        <!-- ESPECIALIDAD 1 -->
         <article class="tarjeta-especial">
           <div>
             <span class="badge-estrella">&#9733; Plato Insignia</span>
@@ -559,7 +624,6 @@
           <div class="precio-especial">$5.00</div>
         </article>
 
-        <!-- ESPECIALIDAD 2 -->
         <article class="tarjeta-especial">
           <div>
             <span class="badge-estrella">&#9733; Receta Original</span>
@@ -579,16 +643,15 @@
   </section>
 
   <!-- ========================================================================
-       SECCIÓN DEL MENÚ ORGANIZADO POR CATEGORÍAS
+       MENÚ DIGITAL ORGANIZADO POR CATEGORÍAS
        ======================================================================== -->
   <section id="menu" class="seccion-menu">
     <div class="contenedor">
       <div class="encabezado-seccion">
         <h2>Nuestro Menú Digital</h2>
-        <p>Explora nuestras categorías y elige tu combinación favorita preparada al instante.</p>
+        <p>Explora nuestras categorías, compara precios y elige tu combinación favorita preparada al instante.</p>
       </div>
 
-      <!-- BOTONES DE FILTRO POR CATEGORÍA -->
       <div class="filtros-menu">
         <button class="btn-filtro activo" onclick="filtrarMenu('todos', this)">Todo el menú</button>
         <button class="btn-filtro" onclick="filtrarMenu('fuertes', this)">Platos Fuertes</button>
@@ -596,16 +659,14 @@
         <button class="btn-filtro" onclick="filtrarMenu('bebidas', this)">Bebidas Tradicionales</button>
       </div>
 
-      <!-- ====================================================================
-           CATEGORÍA 1: PLATOS FUERTES CRIOLLOS
-           ==================================================================== -->
+      <!-- CATEGORÍA 1: PLATOS FUERTES CRIOLLOS -->
       <div class="bloque-categoria" data-categoria="fuertes">
         <h3 class="titulo-categoria">&#9670; Platos Fuertes Criollos</h3>
         <div class="grid-productos">
           
-          <!-- PRODUCTO 1 -->
           <article class="tarjeta-producto">
             <div>
+              <span class="etiqueta-comparacion">Clásico de almuerzo</span>
               <div class="producto-cabecera">
                 <h4 class="producto-nombre">Seco de Gallina Criolla de la Casa</h4>
                 <!-- AQUÍ SE MODIFICA EL PRECIO -->
@@ -620,9 +681,9 @@
             </p>
           </article>
 
-          <!-- PRODUCTO 2 -->
           <article class="tarjeta-producto">
             <div>
+              <span class="etiqueta-comparacion">Especialidad · Mayor valor</span>
               <div class="producto-cabecera">
                 <h4 class="producto-nombre">Tonga Chonera Tradicional</h4>
                 <!-- AQUÍ SE MODIFICA EL PRECIO -->
@@ -637,9 +698,9 @@
             </p>
           </article>
 
-          <!-- PRODUCTO 3 -->
           <article class="tarjeta-producto">
             <div>
+              <span class="etiqueta-comparacion">Especialidad · Punto medio</span>
               <div class="producto-cabecera">
                 <h4 class="producto-nombre">Greñoso de Cerdo al Estilo Tocho’s</h4>
                 <!-- AQUÍ SE MODIFICA EL PRECIO -->
@@ -654,9 +715,9 @@
             </p>
           </article>
 
-          <!-- PRODUCTO 4 -->
           <article class="tarjeta-producto">
             <div>
+              <span class="etiqueta-comparacion">Más accesible en platos fuertes</span>
               <div class="producto-cabecera">
                 <h4 class="producto-nombre">Bollo de Pescado Albacora</h4>
                 <!-- AQUÍ SE MODIFICA EL PRECIO -->
@@ -671,22 +732,19 @@
             </p>
           </article>
 
-          <!-- AQUÍ SE AGREGAN NUEVOS PRODUCTOS EN PLATOS FUERTES:
-               Copia desde <article class="tarjeta-producto"> hasta </article> y pégalo aquí arriba -->
+          <!-- AQUÍ SE AGREGAN NUEVOS PRODUCTOS EN PLATOS FUERTES -->
 
         </div>
       </div>
 
-      <!-- ====================================================================
-           CATEGORÍA 2: ANTOJOS Y ENTRADAS
-           ==================================================================== -->
+      <!-- CATEGORÍA 2: ANTOJOS Y ENTRADAS -->
       <div class="bloque-categoria" data-categoria="antojos">
         <h3 class="titulo-categoria">&#9670; Antojos y Entradas</h3>
         <div class="grid-productos">
           
-          <!-- PRODUCTO 5 -->
           <article class="tarjeta-producto">
             <div>
+              <span class="etiqueta-comparacion">Entrada individual más económica</span>
               <div class="producto-cabecera">
                 <h4 class="producto-nombre">Corviche de Pescado Crujiente</h4>
                 <!-- AQUÍ SE MODIFICA EL PRECIO -->
@@ -701,9 +759,9 @@
             </p>
           </article>
 
-          <!-- PRODUCTO 6 -->
           <article class="tarjeta-producto">
             <div>
+              <span class="etiqueta-comparacion">Porción doble (2 unidades)</span>
               <div class="producto-cabecera">
                 <h4 class="producto-nombre">Empanadas de Verde con Queso Chonero (2 u.)</h4>
                 <!-- AQUÍ SE MODIFICA EL PRECIO -->
@@ -718,9 +776,9 @@
             </p>
           </article>
 
-          <!-- PRODUCTO 7 -->
           <article class="tarjeta-producto">
             <div>
+              <span class="etiqueta-comparacion">Porción triple (3 unidades)</span>
               <div class="producto-cabecera">
                 <h4 class="producto-nombre">Muchines de Yuca con Miel de Panela (3 u.)</h4>
                 <!-- AQUÍ SE MODIFICA EL PRECIO -->
@@ -740,16 +798,14 @@
         </div>
       </div>
 
-      <!-- ====================================================================
-           CATEGORÍA 3: BEBIDAS TRADICIONALES
-           ==================================================================== -->
+      <!-- CATEGORÍA 3: BEBIDAS TRADICIONALES -->
       <div class="bloque-categoria" data-categoria="bebidas">
         <h3 class="titulo-categoria">&#9670; Bebidas Tradicionales</h3>
         <div class="grid-productos">
           
-          <!-- PRODUCTO 8 -->
           <article class="tarjeta-producto">
             <div>
+              <span class="etiqueta-comparacion">Opción más económica del menú</span>
               <div class="producto-cabecera">
                 <h4 class="producto-nombre">Chicha de Maíz Helada</h4>
                 <!-- AQUÍ SE MODIFICA EL PRECIO -->
@@ -764,9 +820,9 @@
             </p>
           </article>
 
-          <!-- PRODUCTO 9 -->
           <article class="tarjeta-producto">
             <div>
+              <span class="etiqueta-comparacion">Jugo natural de fruta fresca</span>
               <div class="producto-cabecera">
                 <h4 class="producto-nombre">Jugo Natural de Maracuyá y Hierbabuena</h4>
                 <!-- AQUÍ SE MODIFICA EL PRECIO -->
@@ -785,15 +841,96 @@
 
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       COMPARACIÓN DE PRECIOS POR CATEGORÍA Y PLATO
+       ======================================================================== -->
+  <section id="comparacion" class="seccion-comparacion">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2>Comparación de Precios</h2>
+        <p>Compara rápidamente los valores de la carta (rango general desde $1.25 hasta $5.00 USD) según categoría y porción.</p>
+      </div>
+
+      <div class="tabla-envoltura">
+        <table class="tabla-precios">
+          <thead>
+            <tr>
+              <th>Categoría</th>
+              <th>Producto</th>
+              <th>Presentación / Enfoque</th>
+              <th>Precio (USD)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Platos Fuertes</td>
+              <td>Tonga Chonera Tradicional</td>
+              <td>Especialidad envuelta en hoja de plátano</td>
+              <td class="precio-destacado-tabla">$5.00</td>
+            </tr>
+            <tr>
+              <td>Platos Fuertes</td>
+              <td>Seco de Gallina Criolla de la Casa</td>
+              <td>Plato fuerte con arroz y maduro</td>
+              <td class="precio-destacado-tabla">$4.50</td>
+            </tr>
+            <tr>
+              <td>Platos Fuertes</td>
+              <td>Greñoso de Cerdo al Estilo Tocho’s</td>
+              <td>Especialidad con cerdo y maíz molido</td>
+              <td class="precio-destacado-tabla">$4.25</td>
+            </tr>
+            <tr>
+              <td>Platos Fuertes</td>
+              <td>Bollo de Pescado Albacora</td>
+              <td>Plato fuerte más accesible de la categoría</td>
+              <td class="precio-destacado-tabla">$3.75</td>
+            </tr>
+            <tr>
+              <td>Antojos y Entradas</td>
+              <td>Empanadas de Verde con Queso Chonero</td>
+              <td>2 unidades</td>
+              <td class="precio-destacado-tabla">$2.25</td>
+            </tr>
+            <tr>
+              <td>Antojos y Entradas</td>
+              <td>Muchines de Yuca con Miel de Panela</td>
+              <td>3 unidades</td>
+              <td class="precio-destacado-tabla">$2.00</td>
+            </tr>
+            <tr>
+              <td>Antojos y Entradas</td>
+              <td>Corviche de Pescado Crujiente</td>
+              <td>1 unidad con curtido</td>
+              <td class="precio-destacado-tabla">$1.75</td>
+            </tr>
+            <tr>
+              <td>Bebidas Tradicionales</td>
+              <td>Jugo Natural de Maracuyá y Hierbabuena</td>
+              <td>Vaso de fruta natural al instante</td>
+              <td class="precio-destacado-tabla">$1.50</td>
+            </tr>
+            <tr>
+              <td>Bebidas Tradicionales</td>
+              <td>Chicha de Maíz Helada</td>
+              <td>Bebida más económica de todo el menú</td>
+              <td class="precio-destacado-tabla">$1.25</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <p class="nota-precios">
-        * Todos los precios están expresados en dólares estadounidenses (USD) y son valores referenciales sujetos a actualización.
+        * Todos los precios están expresados en dólares estadounidenses (USD) y son valores referenciales sujetos a revisión.
       </p>
     </div>
   </section>
 
   <!-- ========================================================================
-       SECCIÓN DE LLAMADA A LA ACCIÓN (CTA)
+       LLAMADA A LA ACCIÓN (CTA)
        ======================================================================== -->
   <section class="seccion-cta">
     <div class="contenedor">
@@ -803,7 +940,7 @@
   </section>
 
   <!-- ========================================================================
-       SECCIÓN FINAL: INFORMACIÓN DEL RESTAURANTE
+       INFORMACIÓN DEL RESTAURANTE
        ======================================================================== -->
   <section id="nosotros" class="info-restaurante">
     <div class="contenedor">
@@ -825,7 +962,7 @@
   </section>
 
   <!-- ========================================================================
-       PIE DE PÁGINA (FOOTER)
+       PIE DE PÁGINA
        ======================================================================== -->
   <footer>
     <div class="contenedor">
@@ -836,16 +973,14 @@
   </footer>
 
   <!-- ========================================================================
-       JAVASCRIPT SENCILLO PARA FILTRAR CATEGORÍAS DEL MENÚ
+       JAVASCRIPT PARA FILTRAR CATEGORÍAS DEL MENÚ
        ======================================================================== -->
   <script>
     function filtrarMenu(categoriaSeleccionada, botonPulsado) {
-      // 1. Actualizar el estilo activo de los botones
       const botones = document.querySelectorAll('.btn-filtro');
       botones.forEach(boton => boton.classList.remove('activo'));
       botonPulsado.classList.add('activo');
 
-      // 2. Mostrar u ocultar las categorías según el botón seleccionado
       const bloques = document.querySelectorAll('.bloque-categoria');
       bloques.forEach(bloque => {
         if (categoriaSeleccionada === 'todos' || bloque.dataset.categoria === categoriaSeleccionada) {
